@@ -8,6 +8,7 @@ public class Main {
 		Scanner scn = new Scanner (System.in);
 		boolean cont= true;	
 		Main clinetApp = null;
+		int cnt = 0;
 		
 		while (cont) {		
 			System.out.print ("Please Enter Your First Number : ");
@@ -23,7 +24,8 @@ public class Main {
 			Connection con =  new Connection ();
 			
 			String ans = con.getResponseFromServer(fstNum, scndNum, encodedOperation);			
-			System.out.println (ans);		
+			System.out.println (ans);
+								
 			
 			System.out.print ("\nDo You Wish To Continue [true/false] :");
 			cont = scn.nextBoolean();

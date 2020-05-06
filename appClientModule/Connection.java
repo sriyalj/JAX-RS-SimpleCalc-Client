@@ -20,18 +20,25 @@ public class Connection {
     	webTarget = client.target(serverURL);    	
     }
     
+    
     String getResponseFromServer (String fstNum, String scndNum, String Operation) {
-    	String ans = null;
-    	//System.out.print (Operation);
-    	
+    	String ans = null;    	
+    	   	
     	try {
-    	serverResponse = webTarget.path("view").path(fstNum).path(scndNum).path(Operation).request().accept(MediaType.TEXT_PLAIN).get();
+    	serverResponse = webTarget.path("view")
+    								.path(fstNum)
+    								.path(scndNum)
+    								.path(Operation)    								
+    								.request()
+    								.header("Content-type", "text/plain")
+    								.accept(MediaType.TEXT_PLAIN)
+    								.get();
     	ans = serverResponse.readEntity(String.class);  
     	}
     	catch (Exception e) {
     		ans = e.getMessage();
     	}    	
     	return ans;    	
-    }
-
+    }   
+    
 }
